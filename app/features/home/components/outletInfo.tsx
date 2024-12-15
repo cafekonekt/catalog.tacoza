@@ -1,6 +1,7 @@
 import { MapPin } from "lucide-react";
+import { Outlet } from "@/app/features/home/types/outlet";
 
-export function OutletInfo() {
+export function OutletInfo({ outlet }: { outlet: Outlet }) {
   return (
     <div>
       <img
@@ -8,10 +9,10 @@ export function OutletInfo() {
         alt="Outlet Image"
         className="h-40 w-full object-cover rounded-lg"
       />
-      <h1 className="text-lg font-bold">Outlet Name</h1>
-      <p className="text-sm">Outlet Description</p>
+      <h1 className="text-lg font-bold">{ outlet.name }</h1>
+      <p className="text-sm">{ outlet.description }</p>
       <span className="text-sm flex">
-        <MapPin size={20} /> Outlet Description
+        <MapPin size={20} /> { outlet.location }
       </span>
     </div>
   );

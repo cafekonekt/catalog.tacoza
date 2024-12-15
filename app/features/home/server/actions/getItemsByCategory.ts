@@ -2,14 +2,16 @@
 import { apiGet } from "@/utils/apiHandler";
 import { catchError } from "@/utils/catchError";
 // types
-import { Category } from "@/app/features/home/types/menu";
+import { FoodItem } from "@/app/features/home/types/menu";
 
-export async function getMenu(menu: string): Promise<{
+export async function getItemsByCategory(slug: string): Promise<{
   message: string;
   status: "success" | "error";
-  data?: Category[];
+  data?: FoodItem[];
 }> {
-  const [error, response] = await catchError(apiGet<Category[]>(`/api/shop/menu/${menu}`));
+  const [error, response] = await catchError(
+    apiGet<FoodItem[]>(`/api/shop/food-items-category/${slug}`),
+  );
   if (error) {
     return {
       message: error.message,

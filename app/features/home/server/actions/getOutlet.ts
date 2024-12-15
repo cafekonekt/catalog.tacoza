@@ -1,24 +1,8 @@
 "use server";
 import { apiGet } from "@/utils/apiHandler";
 import { catchError } from "@/utils/catchError";
-
-interface Outlet {
-  id: number;
-  name: string;
-  address: string;
-  city: string;
-  state: string;
-  pincode: string;
-  phone: string;
-  email: string;
-  latitude: number;
-  longitude: number;
-  opening_time: string;
-  closing_time: string;
-  is_active: boolean;
-  created_at: string;
-  updated_at: string;
-}
+// types
+import { Outlet } from "@/app/features/home/types/outlet";
 
 export async function getOutlet(menu: string): Promise<{
   message: string;
